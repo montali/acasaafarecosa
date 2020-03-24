@@ -20,12 +20,22 @@
   width: 80%;
   margin-top: 0;
 }
+@media only screen and (max-width: 600px) {
+  .App-header {
+    justify-content: start;
+  }
+}
+@media only screen and (min-width: 600px) {
+  .App-header {
+    justify-content: center;
+  }
+}
+
 .App-header {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
 }
@@ -36,8 +46,17 @@
 .buttonDiv {
   display: table;
   justify-content: space-between;
+}
+
+.copyrightDiv {
+  justify-content: space-between;
   position: absolute;
   bottom: 0px;
+  font-size: 12px;
+}
+
+.copyrightDiv a {
+  color: #ffffff;
 }
 
 .button {
@@ -51,4 +70,79 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.formPaper {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="url"],
+#contact textarea,
+#contact button[type="submit"] {
+  font: 400 16px "Roboto", Helvetica, Arial, sans-serif;
+}
+
+#contact {
+  background: #f9f9f9;
+  color: black;
+  padding: 25px;
+  margin: 150px 0;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#contact h3 {
+  display: block;
+  font-size: 30px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+#contact h4 {
+  margin: 5px 0 15px;
+  display: block;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+fieldset {
+  border: medium none !important;
+  margin: 0 0 10px;
+  min-width: 100%;
+  padding: 0;
+  width: 100%;
+}
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact input[type="tel"],
+#contact input[type="url"],
+#contact textarea {
+  width: 95%;
+  border: 1px solid #ccc;
+  background: #fff;
+  margin: 0 0 10px;
+  padding: 10px;
+}
+
+#contact input[type="text"]:hover,
+#contact input[type="email"]:hover,
+#contact input[type="tel"]:hover,
+#contact input[type="url"]:hover,
+#contact textarea:hover {
+  -webkit-transition: border-color 0.3s ease-in-out;
+  -moz-transition: border-color 0.3s ease-in-out;
+  transition: border-color 0.3s ease-in-out;
+  border: 1px solid #aaa;
+}
+
+#contact textarea {
+  height: 100px;
+  max-width: 100%;
+  resize: none;
 }
