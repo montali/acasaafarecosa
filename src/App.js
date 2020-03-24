@@ -234,7 +234,7 @@ class Suggest extends React.Component {
             name="link"
           />
           <input
-            placeholder="Titolo link (opzionale)"
+            placeholder="Titolo link per il bottone(opzionale)"
             onChange={this.handleInputChange}
             type="text"
             name="linkDesc"
