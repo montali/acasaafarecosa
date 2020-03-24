@@ -71,7 +71,6 @@ class MainTipper extends React.Component {
     const ColorScheme = require("color-scheme");
     let scm = new ColorScheme();
     let hue = Math.random() * 365;
-    console.log(hue);
     scm
       .from_hue(hue)
       .scheme("contrast")
