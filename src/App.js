@@ -4,6 +4,9 @@ import "react-awesome-button/dist/styles.css";
 
 import "./App.css";
 import axios from "axios";
+import ReactGA from "react-ga";
+ReactGA.initialize("G-GNJXJ3GFD5");
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 class MainTipper extends React.Component {
   constructor(props) {
@@ -159,9 +162,17 @@ class MainTipper extends React.Component {
               <a href="https://github.com/simmontali/acasaafarecosa">
                 This project is open source!
               </a>{" "}
-              <emsp /> <emsp /> <emsp />
+              <nbsp /> <nbsp /> <nbsp />
               <a href="https://instagram.com/sommosimmy">
                 Follow me on Instagram.
+              </a>
+              <nbsp /> <nbsp /> <nbsp />
+              <a
+                href="https://www.privacypolicygenerator.info/live.php?token=IBTncHODVmlgcrYHFj3lCSEbZGBmcpVI"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Privacy Policy
               </a>
             </div>
           </header>
