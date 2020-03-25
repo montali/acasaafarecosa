@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "./logo.svg";
 import { AwesomeButton } from "react-awesome-button";
 import "react-awesome-button/dist/styles.css";
 
@@ -123,7 +122,7 @@ class MainTipper extends React.Component {
             className="App-header"
             style={{ backgroundColor: this.state.colors.background }}
           >
-            <h1 style={{ fontSize: "75px" }}>{this.state.tip.title}</h1>
+            <h1 id="tipTitle">{this.state.tip.title}</h1>
             <div className="descriptionDiv">
               <h4 style={{ fontWeight: "300" }}>
                 {this.state.tip.description}

@@ -31,6 +31,33 @@
   }
 }
 
+@media only screen and (max-height: 600px) {
+  #tipTitle {
+    font-size: 30px;
+    word-break: break-word;
+    hyphens: auto;
+  }
+}
+@media only screen and (min-height: 650px) {
+  #tipTitle {
+    font-size: 50px;
+    word-break: break-word;
+    hyphens: auto;
+  }
+}
+@media only screen and (min-height: 800px) {
+  #tipTitle {
+    font-size: 60px;
+    word-break: break-word;
+    hyphens: auto;
+  }
+}
+@media only screen and (min-height: 980px) {
+  #tipTitle {
+    font-size: 75px;
+  }
+}
+
 .App-header {
   min-height: 100vh;
   display: flex;
@@ -46,6 +73,7 @@
 .buttonDiv {
   display: table;
   justify-content: space-between;
+  margin: auto;
 }
 
 .copyrightDiv {
