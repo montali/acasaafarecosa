@@ -174,3 +174,15 @@ fieldset {
   max-width: 100%;
   resize: none;
 }
+.react-switch {
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+.divNSFW {
+  display: inline-table;
+}
+
+.divNSFW h5 {
+  margin: 0;
+}

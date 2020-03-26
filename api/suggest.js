@@ -9,6 +9,7 @@ module.exports = (req, res) => {
   }
   let db = admin.firestore();
   req.body.approved = false;
+  req.body.nsfw = false;
   let addDoc = db
     .collection("tips")
     .add(req.body)

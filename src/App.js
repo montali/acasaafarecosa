@@ -5,7 +5,8 @@ import "react-awesome-button/dist/styles.css";
 import "./App.css";
 import axios from "axios";
 import ReactGA from "react-ga";
-ReactGA.initialize("G-GNJXJ3GFD5");
+import Switch from "react-switch";
+ReactGA.initialize("G-5GRMX9PJMD");
 ReactGA.pageview(window.location.pathname + window.location.search);
 
 class MainTipper extends React.Component {
@@ -20,12 +21,14 @@ class MainTipper extends React.Component {
           text: null
         }
       },
+      nsfw: false,
       colors: this.getColors(),
       suggesting: false
     };
     this.updateData();
     this.handleSuggestion = this.handleSuggestion.bind(this);
     this.handleCloseSuggestions = this.handleCloseSuggestions.bind(this);
+    this.handleNSFW = this.handleNSFW.bind(this);
   }
   updateData() {
     // Fetch tip from API
@@ -33,6 +36,7 @@ class MainTipper extends React.Component {
     axios
       .get("/api/dbtip")
       .then(res => {
+        const nsfw = res.data.nsfw == null ? false : res.data.nsfw;
         // Change colors and tip
         const tip = {
           title: res.data.title,
@@ -41,15 +45,26 @@ class MainTipper extends React.Component {
             link: res.data.link,
             text: res.data.linkDesc
           },
+          nsfw: nsfw,
           author: res.data.nickname
         };
+        if (nsfw === true && this.state.nsfw === false) {
+          this.updateData();
+          return;
+        }
         this.setState({ tip: tip, colors: colors });
+        ReactGA.event({
+          category: "Tip",
+          action: "Requested another tip"
+        });
       })
       .catch(error => {
         console.log(error);
       });
   }
-
+  handleNSFW() {
+    this.setState({ nsfw: !this.state.nsfw });
+  }
   handleSuggestion(data) {
     const suggestion = {
       title: data.title,
@@ -63,6 +78,10 @@ class MainTipper extends React.Component {
       .then(res => {
         //Thank the user!
         this.setState({ suggesting: false });
+        ReactGA.event({
+          category: "Suggestions",
+          action: "Suggested a tip"
+        });
       })
       .catch(error => {
         console.log(error);
@@ -155,6 +174,14 @@ class MainTipper extends React.Component {
                 >
                   Suggerisci!
                 </AwesomeButton>
+                <div className="divNSFW">
+                  <Switch
+                    onChange={this.handleNSFW}
+                    checked={this.state.nsfw}
+                    className="react-switch"
+                  />
+                  <h5>NSFW</h5>
+                </div>
               </div>
               🏠Proudly made by <a href="https://monta.li/">Simone Montali</a>{" "}
               during the COVID19 quarantine. 🏠
