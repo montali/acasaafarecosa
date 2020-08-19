@@ -4,7 +4,7 @@ module.exports = (req, res) => {
     admin.initializeApp({
       credential: admin.credential.cert(
         JSON.parse(Buffer.from(process.env.GOOGLE_JSON, "base64").toString())
-      )
+      ),
     });
   }
   let db = admin.firestore();
@@ -13,7 +13,7 @@ module.exports = (req, res) => {
   let addDoc = db
     .collection("tips")
     .add(req.body)
-    .then(ref => {
-      res.status(200).json(ref);
+    .then((ref) => {
+      res.status(200).json();
     });
 };
