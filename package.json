@@ -9,7 +9,7 @@
     "axios": "^0.19.2",
     "color-scheme": "^1.0.1",
     "firebase-admin": "^8.10.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "react": "^16.13.1",
     "react-awesome-button": "^6.5.1",
     "react-dom": "^16.13.1",
